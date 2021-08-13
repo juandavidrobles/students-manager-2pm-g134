@@ -2,7 +2,7 @@ import json
 from funciones import buscar_estudiante_por_documento, buscar_estudiante_por_nombre, crear_estudiante, menu_y_seleccion
 import time
 
-archivo_estudiantes = open('./estudiantes.json', 'r')
+archivo_estudiantes = open('./data/estudiantes.json', 'r')
 contenido_archivo = archivo_estudiantes.read()
 estudiantes = json.loads(contenido_archivo)
 
@@ -13,7 +13,7 @@ while True:
   elif (opcion == '2'):
     estudiante = crear_estudiante()
     estudiantes.append(estudiante)
-    file = open('./estudiantes.json', 'w') 
+    file = open('./data/estudiantes.json', 'w') 
     file.write(json.dumps(estudiantes))
     file.close()
     print('\nEstudiante creado con éxito\n')
