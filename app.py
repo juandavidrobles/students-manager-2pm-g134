@@ -1,33 +1,21 @@
+import json
 from funciones import buscar_estudiante_por_documento, buscar_estudiante_por_nombre, crear_estudiante, menu_y_seleccion
 import time
 
-estudiantes = [
-  {
-    'nombre': 'sebas',
-    'apellido': 'correa',
-    'documento': '64435',
-    'sexo': 'm',
-  },
-  {
-    'nombre': 'martin',
-    'apellido': 'martinez',
-    'documento': '644435',
-    'sexo': 'm',
-  },
-  {
-    'nombre': 'daniela',
-    'apellido': 'porras',
-    'documento': '64433',
-    'sexo': 'f',
-  },
-]
+archivo_estudiantes = open('./estudiantes.json', 'r')
+contenido_archivo = archivo_estudiantes.read()
+estudiantes = json.loads(contenido_archivo)
+
 while True:
   opcion = menu_y_seleccion()
   if (opcion == '1'):
-    print(f"Cantidad de estudiantes: {len(estudiantes)}")
+    print (len(estudiantes))
   elif (opcion == '2'):
     estudiante = crear_estudiante()
     estudiantes.append(estudiante)
+    file = open('./estudiantes.json', 'w') 
+    file.write(json.dumps(estudiantes))
+    file.close()
     print('\nEstudiante creado con éxito\n')
   elif (opcion == '3'):
     nombre_a_buscar = input('Ingrese el nombre del estudiante a buscar: ')
