@@ -1,26 +1,7 @@
 from funciones import buscar_estudiante_por_documento, buscar_estudiante_por_nombre, crear_estudiante, menu_y_seleccion
 import time
 
-estudiantes = [
-  {
-    'nombre': 'sebas',
-    'apellido': 'correa',
-    'documento': '64435',
-    'sexo': 'm',
-  },
-  {
-    'nombre': 'martin',
-    'apellido': 'martinez',
-    'documento': '644435',
-    'sexo': 'm',
-  },
-  {
-    'nombre': 'daniela',
-    'apellido': 'porras',
-    'documento': '64433',
-    'sexo': 'f',
-  },
-]
+estudiantes = []
 while True:
   opcion = menu_y_seleccion()
   if (opcion == '1'):
